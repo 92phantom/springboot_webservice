@@ -34,7 +34,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
 
     compile('org.springframework.session:spring-session-jdbc')
-
+    compile('mysql:mysql-connector-java:5.1.46')
 //    annotationProcessor 'org.projectlombok:lombok'
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
