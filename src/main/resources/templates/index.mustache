@@ -1,0 +1,47 @@
+{{>layout/header}}
+    <h1>Spring boot start web service ver.2</h1>
+    <div class="col-md-12">
+
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/posts/save" role="button" class="btn btn-primary">Write</a>
+
+                <!-- [START] Login function -->
+                {{#userName}}
+                    Logged in as: <span id="user">{{userName}}</span>
+                    <a href="/logout" class="btn btn-info activate" role="button">Logout</a>
+                {{/userName}}
+                {{^userName}}
+                    <a href="/oauth2/authorization/google" class="btn btn-success activate" role="button">Google Login</a>
+                {{/userName}}
+                <!-- [END] Login function -->
+
+            </div>
+        </div>
+
+        <br>
+        <!-- [START] show the DB list-->
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+                <tr>
+                    <th>idx</th>
+                    <th>title</th>
+                    <th>author</th>
+                    <th>audit_dtm</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#posts}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>
+                    <td>{{author}}</td>
+                    <td>{{modifiedDate}}</td>
+                </tr>
+            {{/posts}}
+            </tbody>
+        </table>
+        <!-- [END] show the DB list-->
+
+    </div>
+{{>layout/footer}}
