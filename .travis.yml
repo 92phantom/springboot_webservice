@@ -19,3 +19,21 @@ notifications:
   email:
     recipients:
       - hyyyyjin@naver.com
+
+before_delpoy:
+  - zip -r springboot_webservice *
+  - mkdir -p deploy
+  - mv  springboot_webservice.zip deploy/springboot_webservice.zip
+
+deploy:
+  - provider: storage
+    access_key_id: $GCP_ACCESS_KEY
+    secret_access_key: : $GCP_SECRET_KEY
+    bucket : springboot-build #생성한 storage 이름
+    region : multi-region
+    skip_cleanup: true
+    acl : private
+    local_dir : deploy
+    wait-until-deployed: true
+
+
