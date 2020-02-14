@@ -27,8 +27,8 @@ before_delpoy:
 
 deploy:
   - provider: gcs
-    access_key_id: $GCP_ACCESS_KEY
-    secret_access_key: : $GCP_SECRET_KEY
+    access_key_id: $GCP_ACCESS_KEY #GCP
+    secret_access_key: : $GCP_SECRET_KEY #GCP
     bucket : springboot-build #생성한 storage 이름
     region : asia-northeast1
     skip_cleanup: true
