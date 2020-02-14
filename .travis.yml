@@ -26,7 +26,7 @@ before_delpoy:
   - mv  springboot_webservice.zip deploy/springboot_webservice.zip
 
 deploy:
-  - provider: storage
+  - provider: gcs
     access_key_id: $GCP_ACCESS_KEY
     secret_access_key: : $GCP_SECRET_KEY
     bucket : springboot-build #생성한 storage 이름
